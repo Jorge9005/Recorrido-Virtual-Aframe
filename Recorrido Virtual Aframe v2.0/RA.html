@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RA</title>
+    <!--Muchas funciones varian segun la version, funciona igual el 1.2.0 y el 1.3.0-->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+<body>
+    <a-scene embedded arjs>
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 0 270; loop: true; dur: 10000">
+            <a-entity gltf-model="assets/edificio7.glb" scale="4 4 4" rotation="280 0 0"></a-entity>
+        </a-entity>
+        <a-marker-camera preset='hiro'></a-marker-camera>
+    </a-scene>
+    <div class="container">
+        <input type="checkbox" id="btn-mas">
+        <div class="redes">
+            <a href="/RA.html" class="fa-solid fa-camera"></a>
+            <a href="https://www.uanl.mx/oferta/ingeniero-administrador-de-sistemas/" class="fa-solid fa-computer"></a>
+            <a href="https://www.uanl.mx/oferta/ingeniero-en-tecnologia-de-software/" class="fa-solid fa-mobile"></a>
+            <a href="http://recorridovirtual.congresointernacionalpiv.com/" class="fa-solid fa-vr-cardboard"></a>
+        </div>
+        <div class="btn-mas">
+            <label for="btn-mas" class="fa fa-plus"></label>
+        </div>
+    </div>
+</body>
+
+</html>

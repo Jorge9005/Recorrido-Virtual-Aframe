@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recorrido Virtual Aframe</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <!--Icon-Font-->
+    <script src="https://kit.fontawesome.com/001ed59a03.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+
+    <a-scene>
+        <a-assets>
+            <img id="sky1" src="/assets/360.png">
+            <img id="dos" src="/assets/Panorama(0).jpg">
+            <img id="arrowpng" src="/assets/flecha.png" scale="1 1 1">
+            <a-mixin id="Modelo3D" gltf-model="/assets/edificio7.glb" scale="2 2 2"  rotation="90 0 0"></a-mixin>
+            <a-mixin id="animation-scale" animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 1 1 1; to: 3 3 3";
+             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 3 3 3; to: 1 1 1";></a-mixin>
+            <a-mixin id="apagar"
+            event-set__taroff="_event:click; _target: #Primera; visible:false"></a-mixin>
+            <a-mixin id="encender" event-set__tar="_event:click; _target: #Primera; visible:true"></a-mixin> 
+
+            <!--Arrows-->
+            <img src="#arrowpng">
+            <a-mixin id="left" mixin="animation-scale apagar" material="src:#arrowpng" position="-5.5 0 -4" rotation="0 0 180"></a-mixin>
+            <a-mixin id="right" mixin="animation-scale" material="src:#arrowpng" position="5.5 0 -4" rotation="0 0 0"></a-mixin>
+            <a-mixin id="down" mixin="animation-scale" material="src:#arrowpng" position="0 -2.7 -4" rotation="0 0 270"></a-mixin>
+            <a-mixin id="up" mixin="animation-scale" material="src:#arrowpng" position="0 2.7 -4" rotation="0 0 90"></a-mixin>
+        </a-assets>
+
+        <!--Camera-->
+        <a-entity camera="active: true" mixin="encender" look-controls position="0 0 0">
+            <a-cursor src="/assets/cursor.png" scale="3 3 3"></a-cursor>
+        </a-entity>
+        <!--Esto sirve para que usemos los clicks del mouse, y no solo los del cursor definido anteriormente-->
+        <a-entity mono cursor="rayOrigin:mouse"></a-entity>
+
+        <a-entity id="Primera">
+            <a-sky src="#sky1" position="0 0 0" rotation="0 270 0"></a-sky>
+            <a-entity camera look-controls id="Primera"><!--Esto sirve para que los items dentro de la entidad camara se muevan junto con la camara sin importar a donde mire-->
+
+                <!--Arrows-->
+                <a-image mixin="left"></a-image>
+                <a-image mixin="right"></a-image>
+                <a-image mixin="down"></a-image>
+                <a-image mixin="up"></a-image>
+            </a-entity>
+        </a-entity>
+
+        <a-entity id="Segunda">
+            <a-sky src="#dos" visible="false"></a-sky>
+        </a-entity>
+    </a-scene>
+
+
+    <div class="container">
+        <input type="checkbox" id="btn-mas">
+        <div class="redes">
+            <a href="/RA.html" class="fa-solid fa-camera"></a>
+            <a href="https://www.uanl.mx/oferta/ingeniero-administrador-de-sistemas/" class="fa-solid fa-computer"></a>
+            <a href="https://www.uanl.mx/oferta/ingeniero-en-tecnologia-de-software/" class="fa-solid fa-mobile"></a>
+            <a href="http://recorridovirtual.congresointernacionalpiv.com/" class="fa-solid fa-vr-cardboard"></a>
+        </div>
+        <div class="btn-mas">
+            <label for="btn-mas" class="fa fa-plus"></label>
+        </div>
+    </div>
+
+</body>
+
+</html>

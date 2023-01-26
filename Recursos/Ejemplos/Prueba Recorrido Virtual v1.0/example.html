@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba</title>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+    
+    <script src="js/components/toggle_sound.js"></script>
+    <script src="https://kit.fontawesome.com/001ed59a03.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" src="css/index.css">
+
+</head>
+
+<body>
+
+    <div class="button-container">
+        <button id="speaker-button">
+            <img id="speaker-img" src="img/sound_off.png" alt="texture" />
+        </button>
+    </div>
+
+    <a-scene id="my-scene" loading-screen="dotsColor: red; backgroundColor: black">
+        <a-assets>
+            <img id="boxTexture" src="img/texture_wear.jpg" alt="texture">
+            <img id="exit" src="img/exit.jpg" alt="texture">
+            <img id="img-360-telde-sanjuan" src="img/telde_sanjuan_360.jpg" alt="img-360-telde-sanjuan">
+            <img id="img-360-cuatro-puertas-inside" src="img/cuatro_puertas_inside_360.jpg" alt="img-360-cuatro-puertas-inside">
+            <img id="img-360-cuatro-puertas-outside" src="img/cuatro_puertas_outside_360.jpg" alt="img-360-cuatro-puertas-outside">
+            <img id="360-1" src="img/360.png">
+            <img id="360-2" src="img/360-2.png">
+            <img id="360-3" src="img/360-3.png">
+            <audio id="sound-birds" src="ogg/387978__dcpoke__birds-singing-03.ogg" preload="auto"></audio>
+            <audio id="sound-wind-outside" src="ogg/135034__mrlindstrom__windloop6sec.ogg" preload="auto"></audio>
+            <audio id="sound-wind-inside" src="ogg/212443__klankbeeld__howling-wind-inside-01-131230-01.ogg"
+                preload="auto"></audio>
+            <audio id="magic-click" src="ogg/340159__flechabr__magic-click.ogg" preload="auto"></audio>
+
+            
+            <!--Arrows-->
+            <img src="#arrowpng">
+            <a-mixin id="left" mixin="animation-scale" material="src:#arrowpng" position="-5.5 0 -4" rotation="0 0 180"></a-mixin>
+            <a-mixin id="right" mixin="animation-scale" material="src:#arrowpng" position="5.5 0 -4" rotation="0 0 0"></a-mixin>
+            <a-mixin id="down" mixin="animation-scale" material="src:#arrowpng" position="0 -2.7 -4" rotation="0 0 270"></a-mixin>
+            <a-mixin id="up" mixin="animation-scale" material="src:#arrowpng" position="0 2.7 -4" rotation="0 0 90"></a-mixin>
+
+            <a-mixin id="animation-scale" animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 1 1 1; to: 3 3 3";
+             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 3 3 3; to: 1 1 1";></a-mixin>
+
+
+        </a-assets>
+
+
+        <!--Camera-->
+        <a-entity camera="active" look-controls position="0 0 0">
+            <a-cursor raycaster="objects: .clickable" src="img/cursor.png" scale="2 2 2"></a-cursor>
+        </a-entity>
+        <!--Esto sirve para que usemos los clicks del mouse, y no solo los del cursor definido anteriormente-->
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+
+        
+        <a-entity position="-1 0.5 -3">
+            <a-entity >
+                <a-entity position="0 0 -6">
+                    <a-box src="#boxTexture" rotation="0 45 45" scale=".2 .2 .2" color="red" visible="true"
+                    animation__position="property: rotation; to: 0 360 0; dir: alternate; dur: 2000; loop: true"
+                    animation__mouseenter="property: scale; to: .5 .5 .5; dur: 300; startEvents: mouseenter"
+                    animation__mouseleave="property: scale; to: .25 .25 .25; dur: 300; startEvents: mouseleave"></a-box>
+                    <a-image position="1.75 0 0" width="3" height="0.25" color="black"
+                    change-site="img: #360-1; sound: #sound-birds; zone: .fime1"
+                    sound="on: click; src: #magic-click">
+                    <a-text color="white" value="Fime-Uno" align="center"></a-text>
+                </a-image>
+                </a-entity>
+                
+                <a-entity camera look-controls position="-1 0.5 -4">
+                    <!--Arrows-->
+                    <a-circle src="img/flecha.png" position="-5.5 0 -5" rotation="0 0 180" mixin="animation-scale"></a-circle>
+                    <a-circle src="img/flecha.png" position="5.5 0 -5" rotation="0 0 0" mixin="animation-scale"></a-circle>
+                    <a-circle src="img/flecha.png" position="0 -2.7 -5" rotation="0 0 270" mixin="animation-scale"></a-circle>
+                    <a-circle src="img/flecha.png" position="0 2.7 -5" rotation="0 0 90" mixin="animation-scale"></a-circle>
+                </a-entity>
+                
+                
+                
+                
+            </a-entity>
+
+            <a-entity position="0 0.3 -6">
+                <a-box src="#boxTexture" rotation="0 45 45" scale=".2 .2 .2" visible="false" color="red"
+                    animation__position="property: rotation; to: 0 360 0; dir: alternate; dur: 2000; loop: true"
+                    animation__mouseenter="property: scale; to: .5 .5 .5; dur: 300; startEvents: mouseenter"
+                    animation__mouseleave="property: scale; to: .25 .25 .25; dur: 300; startEvents: mouseleave"></a-box>
+                <a-image position="1.75 0 0" width="3" height="0.25" color="black" class="fime2 clickable"
+                    change-site="img: #360-2; sound: #sound-wind-inside; zone: .fime2"
+                    sound="on: click; src: #magic-click" mixin="">
+                    <a-text color="gray" value="Fime-Dos" align="center"></a-text>
+                </a-image>
+                <a-circle opacity="0" position="-3 0 10" rotation="0 135 0" radius="2" color="white" class="fime2 clickable" visible="false"
+                    change-site="img: #img-360-cuatro-puertas-outside; sound: #sound-wind-outside; zone: .cuatro-puertas-outside"
+                    sound="on: click; src: #magic-click">
+                    <a-image src="#exit"></a-image>
+                </a-circle>
+                <a-circle opacity="0" position="8.5 0.4 -1.5" rotation="0 -45 0" scale="1 0.8 1" radius="2" color="white" class="fime2 clickable" visible="false"
+                    change-site="img: #img-360-cuatro-puertas-inside; sound: #sound-wind-inside; zone: .fime2"
+                    sound="on: click; src: #magic-click">
+                    <a-image src="#exit"></a-image>
+                </a-circle>
+            </a-entity>
+            <a-entity position="0 -0.3 -6">
+                <a-box src="#boxTexture" rotation="0 45 45" scale=".2 .2 .2" visible="false" color="red"
+                    animation__position="property: rotation; to: 0 360 0; dir: alternate; dur: 2000; loop: true"
+                    animation__mouseenter="property: scale; to: .5 .5 .5; dur: 300; startEvents: mouseenter"
+                    animation__mouseleave="property: scale; to: .25 .25 .25; dur: 300; startEvents: mouseleave"></a-box>
+                <a-image position="1.75 0 0" width="3" height="0.25" color="black" class="fime2 clickable"
+                    change-site="img: #360-3; sound: #sound-wind-inside; zone: .cuatro-puertas-extra"
+                    sound="on: click; src: #magic-click">
+                    <a-text color="gray" value="Fime-Tres" align="center"></a-text>
+                </a-image>
+            </a-entity>
+        </a-entity>
+
+        <a-sky id="my-sky" src="#360-1" sound="src: #sound-birds; loop: true" data-sounding="false" position="0 0 0" rotation="0 270 0">
+        </a-sky>
+    </a-scene>
+
+    
+    <div class="container">
+        <input type="checkbox" id="btn-mas">
+        <div class="redes">
+            <a href="/RA.html" class="fa-solid fa-camera"></a>
+            <a href="https://www.uanl.mx/oferta/ingeniero-administrador-de-sistemas/" class="fa-solid fa-computer"></a>
+            <a href="https://www.uanl.mx/oferta/ingeniero-en-tecnologia-de-software/" class="fa-solid fa-mobile"></a>
+            <a href="http://recorridovirtual.congresointernacionalpiv.com/" class="fa-solid fa-vr-cardboard"></a>
+        </div>
+        <div class="btn-mas">
+            <label for="btn-mas" class="fa fa-plus"></label>
+        </div>
+    </div>
+    <script src="js/components/change_site.js"></script>
+</body>
+
+</html>
