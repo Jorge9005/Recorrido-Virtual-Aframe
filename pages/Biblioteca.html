@@ -9,7 +9,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../assets/styles/index.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/001ed59a03.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -21,16 +21,16 @@
         <a-entity camera look-controls cursor="rayOrigin:mouse"></a-entity>
         <!--/Camera-->
         <a-assets>
-            <img id="Biblioteca" src="../assets/Biblioteca.jpg">
-            <img id="flecha" src="../assets/flecha.png">
+            <img id="Biblioteca" src="../assets/images/Biblioteca.jpg">
+            <img id="flecha" src="../assets/images/flecha.png">
             <a-mixin id="animation-scale" animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 1 1 1; to: 2 2 2";
-             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 2 2 2; to: 1 1 1";></a-mixin>
+            animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 2 2 2; to: 1 1 1";></a-mixin>
             <!--Arrows-->
-             <a-mixin id="arrowup" mixin="animation-scale" material="src:#flecha" rotation="0 0 90" position="0 1.9 -3"></a-mixin>
-             <a-mixin id="arrowdown" mixin="animation-scale" material="src:#flecha" rotation="0 0 270" position="0 -1.9 -3"></a-mixin>
-             <a-mixin id="arrowleft" mixin="animation-scale" material="src:#flecha" rotation="0 0 180" position="-4 0 -3"></a-mixin>
-             <a-mixin id="arrowright" mixin="animation-scale" material="src:#flecha" rotation="0 0 360" position="4 0 -3"></a-mixin>
-             <!--/Arrows-->
+            <a-mixin id="arrowup" mixin="animation-scale" material="src:#flecha" rotation="0 0 90" position="0 1.9 -3"></a-mixin>
+            <a-mixin id="arrowdown" mixin="animation-scale" material="src:#flecha" rotation="0 0 270" position="0 -1.9 -3"></a-mixin>
+            <a-mixin id="arrowleft" mixin="animation-scale" material="src:#flecha" rotation="0 0 180" position="-4 0 -3"></a-mixin>
+            <a-mixin id="arrowright" mixin="animation-scale" material="src:#flecha" rotation="0 0 360" position="4 0 -3"></a-mixin>
+            <!--/Arrows-->
         </a-assets>
 
         <a-entity camera look-controls>
@@ -39,7 +39,7 @@
         </a-entity>
 
         <a-sky src="#Biblioteca" rotation="0 90 0"> </a-sky>
-        
+
     </a-scene>
 
     <div class="container">

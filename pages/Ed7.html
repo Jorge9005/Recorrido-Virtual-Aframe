@@ -9,7 +9,7 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../assets/styles/index.css">
     <!--Icon-Font-->
     <script src="https://kit.fontawesome.com/001ed59a03.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
@@ -24,13 +24,13 @@
             <img id="Ed7" src="../assets/Ed7.jpg">
             <img id="flecha" src="../assets/flecha.png">
             <a-mixin id="animation-scale" animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 1 1 1; to: 2 2 2";
-             animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 2 2 2; to: 1 1 1";></a-mixin>
+            animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 2 2 2; to: 1 1 1";></a-mixin>
             <!--Arrows-->
-             <a-mixin id="arrowup" mixin="animation-scale" material="src:#flecha" rotation="0 0 90" position="0 1.9 -3"></a-mixin>
-             <a-mixin id="arrowdown" mixin="animation-scale" material="src:#flecha" rotation="0 0 270" position="0 -1.9 -3"></a-mixin>
-             <a-mixin id="arrowleft" mixin="animation-scale" material="src:#flecha" rotation="0 0 135" position="-3.5 1.2 -3"></a-mixin>
-             <a-mixin id="arrowright" mixin="animation-scale" material="src:#flecha" rotation="0 0 360" position="4 0 -3"></a-mixin>
-             <!--/Arrows-->
+            <a-mixin id="arrowup" mixin="animation-scale" material="src:#flecha" rotation="0 0 90" position="0 1.9 -3"></a-mixin>
+            <a-mixin id="arrowdown" mixin="animation-scale" material="src:#flecha" rotation="0 0 270" position="0 -1.9 -3"></a-mixin>
+            <a-mixin id="arrowleft" mixin="animation-scale" material="src:#flecha" rotation="0 0 135" position="-3.5 1.2 -3"></a-mixin>
+            <a-mixin id="arrowright" mixin="animation-scale" material="src:#flecha" rotation="0 0 360" position="4 0 -3"></a-mixin>
+            <!--/Arrows-->
         </a-assets>
 
         <a-entity camera look-controls>
@@ -43,7 +43,7 @@
         <a-plane position="-0.35 2 -5" rotation="0 0 0" width="2" height="0.25" color="black">
             <a-text color="white" value="EDIFICIO 7" align="center"></a-text>
         </a-plane>
-        
+
     </a-scene>
 
     <div class="container">
@@ -60,23 +60,18 @@
     </div>
 
 </body>
-
-
-<script>
-    //flecha izquierda
-    document
-        .querySelector("#arriba")
-        .addEventListener("click", e => {
-        location.href = "Ed7-ParteTrasera.html";
-    });
-    
-    //flecha derecha
-    document
-        .querySelector("#der")
-        .addEventListener("click", e => {
-        location.href = "LabQuimica.html";
-    });
-
-</script>
-
+    <script>
+        //flecha izquierda
+        document
+            .querySelector("#arriba")
+            .addEventListener("click", e => {
+            location.href = "Ed7-ParteTrasera.html";
+        });
+        //flecha derecha
+        document
+            .querySelector("#der")
+            .addEventListener("click", e => {
+            location.href = "LabQuimica.html";
+        });
+    </script>
 </html>
