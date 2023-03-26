@@ -3,91 +3,169 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Recorrido Virtual FIME</title>
+
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
-    <link rel="stylesheet" href="index.css">
-    <!--Icon-Font-->
-    <script src="https://kit.fontawesome.com/001ed59a03.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <script src="assets/js/components/toggle_sound.js"></script>
+    <script src="assets/js/components/change_site.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <a-scene background="color: #FAFAFA">
-        <!--Camera-->
-        <a-entity camera look-controls cursor="rayOrigin:mouse"></a-entity>
-        <!--/Camera-->
-        <a-assets>
-            <img id="index" src="assets/images/index.jpg">
-            <img id="flecha" src="assets/images/flecha.png">
-            <a-mixin id="animation-scale" animation__mouseenter="property: scale; startEvents: mouseenter; easing: easeInCubic; dur: 150; from: 1 1 1; to: 2 2 2";
-            animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 150; from: 2 2 2; to: 1 1 1";></a-mixin>
-            <!--Arrows-->
-            <a-mixin id="arrowup" mixin="animation-scale" material="src:#flecha" rotation="0 0 90" position="0 1.9 -3"></a-mixin>
-            <a-mixin id="arrowdown" mixin="animation-scale" material="src:#flecha" rotation="0 0 270" position="0 -1.9 -3"></a-mixin>
-            <a-mixin id="arrowleft" mixin="animation-scale" material="src:#flecha" rotation="0 0 180" position="-4 0 -3"></a-mixin>
-            <a-mixin id="arrowright" mixin="animation-scale" material="src:#flecha" rotation="0 0 360" position="4 0 -3"></a-mixin>
-            <!--/Arrows-->
-        </a-assets>
 
-        <a-entity camera look-controls>
-            <a-image id="arriba" mixin="arrowup"></a-image>
-            <a-image id="izq" mixin="arrowleft"></a-image>
-            <a-image id="der" mixin="arrowright"></a-image>
-        </a-entity>
+    <div class="button-container">
+        <button id="speaker-button">
+            <img id="speaker-img" src="assets/img/sound_off.png" alt="texture" />
+        </button>
+    </div>
+    <div class="principal-buttons">
+        <button id="btn-menu" type="button" class="btn btn-outline-success">MENÚ</button>
+        <button id="btn-info" type="button" class="btn btn-outline-info">INFORMACIÓN</button>
+    </div>
 
-        <a-sky src="#index" rotation="0 180 0"> </a-sky>
-
-        <a-plane position="2.3 2.2 -6" rotation="0 0 -1" width="2" height="0.25" color="black">
-                <a-text color="white" value="EDIFICIO 1" align="center"></a-text>
-        </a-plane>
-        <a-plane position="-10 5.5 -5" rotation="0 50 0" width="1" height="0.25" color="black">
-            <a-text color="white" value="CIDET" align="center"></a-text>
-        </a-plane>
-
-    </a-scene>
-
-    <div class="container">
-        <input type="checkbox" id="btn-mas">
-        <div class="redes">
-            <a href="RA.html" class="fa-solid fa-camera"></a>
-            <a href="https://www.uanl.mx/oferta/ingeniero-administrador-de-sistemas/" class="fa-solid fa-computer"></a>
-            <a href="https://www.uanl.mx/oferta/ingeniero-en-tecnologia-de-software/" class="fa-solid fa-mobile"></a>
-            <a href="http://recorridovirtual.congresointernacionalpiv.com/" class="fa-solid fa-vr-cardboard"></a>
+    <div class="row bg-black w-75 h-75 justify-content-center" id="container-menu">
+        <div class="row">
+            <div class="col-12 bg-danger">Menú Principal</div>
         </div>
-        <div class="btn-mas">
-            <label for="btn-mas" class="fa fa-plus"></label>
+        <div class="row">
+            <div class="col-4 bg-light">Edificios</div>
+            <div class="col-4 bg-light">Laboratorios</div>
+            <div class="col-4 bg-light">Baños</div>
+        </div>
+        <div class="row">
+            <div class="col-4 bg-light">Auditorios</div>
+            <div class="col-4 bg-light">Salones</div>
+            <div class="col-4 bg-light">Casilleros</div>
         </div>
     </div>
 
+    <a-scene id="my-scene">
+        <a-assets>
+            <img id="img-360-Biblioteca" src="assets/img/Biblioteca.jpg" alt="img-360-Biblioteca">
+            <img id="img-360-Cafeteria" src="assets/img/Cafeteria.jpg" alt="img-360-Cafeteria">
+            <img id="img-360-CanchasFutbol" src="assets/img/CanchasFutbol.jpg" alt="img-360-CanchasFutbol">
+            <img id="img-360-Ed1-5" src="assets/img/Ed1-5.jpg" alt="img-360-Ed1-5">
+            <img id="img-360-Ed2-Baños" src="assets/img/Ed2-Baños.jpg" alt="img-360-Ed2-Baños">
+            <img id="img-360-Ed3-ParteTrasera" src="assets/img/Ed3-ParteTrasera.jpg" alt="img-360-Ed3-ParteTrasera">
+            <img id="img-360-Ed3" src="assets/img/Ed3.jpg" alt="img-360-Ed3">
+            <img id="img-360-Ed4" src="assets/img/Ed4.jpg" alt="img-360-Ed4">
+            <img id="img-360-Ed6-ParteTrasera" src="assets/img/Ed6-ParteTrasera.jpg" alt="img-360-Ed6-ParteTrasera">
+            <img id="img-360-Ed7-Cafeteria" src="assets/img/Ed7-Cafeteria.jpg" alt="img-360-Ed7-Cafeteria">
+            <img id="img-360-Ed7-ParteTrasera" src="assets/img/Ed7-ParteTrasera.jpg" alt="img-360-Ed7-ParteTrasera">
+            <img id="img-360-Ed7" src="assets/img/Ed7.jpg" alt="img-360-Ed7">
+            <img id="img-360-Ed9" src="assets/img/Ed9.jpg" alt="img-360-Ed9">
+            <img id="img-360-EdBecas" src="assets/img/EdBecas.jpg" alt="img-360-EdBecas">
+            <img id="img-360-EdCADE" src="assets/img/EdCADE.jpg" alt="img-360-EdCADE">
+            <img id="img-360-EdCCPI" src="assets/img/EdCCPI.jpg" alt="img-360-EdCCPI">
+            <img id="img-360-EdCIDET" src="assets/img/EdCIDET.jpg" alt="img-360-EdCIDET">
+            <img id="img-360-FimeBook" src="assets/img/FimeBook.jpg" alt="img-360-FimeBook">
+            <img id="img-360-huella" src="assets/img/huella.jpg" alt="img-360-huella">
+            <img id="img-360-LabQuimica" src="assets/img/LabQuimica.jpg" alt="img-360-LabQuimica">
+            <img id="img-360-MaterialDidactico" src="assets/img/MaterialDidactico.jpg" alt="img-360-MaterialDidactico">
+            <img id="img-360-OsoFime" src="assets/img/OsoFime.jpg" alt="img-360-OsoFime">
+            <img id="img-360-PasilloEd3-Ed4" src="assets/img/PasilloEd3-Ed4.jpg" alt="img-360-PasilloEd3-Ed4">
+            <img id="img-360-PasilloPrincipal" src="assets/img/PasilloPrincipal.jpg" alt="img-360-PasilloPrincipal">
+            <img id="img-360-Polideportivo" src="assets/img/Polideportivo.jpg" alt="img-360-Polideportivo">
+
+            <img id="boxTexture" src="assets/img/texture_wear.jpg" alt="texture">
+            <img id="img-flecha" src="assets/img/flecha.png" alt="img-flecha">
+            <audio id="sound-birds" src="assets/sounds/387978__dcpoke__birds-singing-03.ogg" preload="auto"></audio>
+            <audio id="sound-wind-outside" src="assets/sounds/135034__mrlindstrom__windloop6sec.ogg"
+                preload="auto"></audio>
+            <audio id="sound-wind-inside" src="assets/sounds/212443__klankbeeld__howling-wind-inside-01-131230-01.ogg"
+                preload="auto"></audio>
+            <audio id="magic-click" src="assets/sounds/340159__flechabr__magic-click.ogg" preload="auto"></audio>
+        </a-assets>
+
+        <a-camera>
+            <a-cursor raycaster="far: 20; interval: 1000; objects: .clickable"></a-cursor>
+        </a-camera>
+
+        <a-entity position="0 0 -3">
+            <a-entity> <!--En zone se pone el nombre de la zone con un punto porque hace alusión a una clase, así es como funciona,
+                cambiando la zona por clases para poder traer consigo los elementos que queramos y no solo uno.-->
+
+                <!--Huella-->
+                <a-image id="arrow-up" src="assets/img/flecha.png" position="0 3.5 0" rotation="0 0 90"
+                    class="huella clickable" visible="true"
+                    change-site="img: #img-360-PasilloPrincipal; sound: #sound-birds; zone: .pasillo-principal"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" src="assets/img/flecha.png" position="-4 1.5 0" rotation="0 0 180"
+                    class="huella clickable" visible="true"
+                    change-site="img: #img-360-EdCIDET; sound: #sound-birds; zone: .edificio-cidet"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" src="assets/img/flecha.png" position="4 1.5 0" rotation="0 0 0"
+                    class="huella clickable" visible="true"
+                    change-site="img: #img-360-EdCCPI; sound: #sound-birds; zone: .edificio-ccpi"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Pasillo Principal-->
+                <a-image id="arrow-up" src="assets/img/flecha.png" position="0 3.5 0" rotation="0 0 90"
+                    class="pasillo-principal clickable" visible="false"
+                    change-site="img: #img-360-EdCADE; sound: #sound-birds; zone: .edificio-cade"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" src="assets/img/flecha.png" position="-4 1.5 0" rotation="0 0 180"
+                    class="pasillo-principal clickable" visible="false"
+                    change-site="img: #img-360-MaterialDidactico; sound: #sound-birds; zone: .MaterialDidactico"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" src="assets/img/flecha.png" position="4 1.5 0" rotation="0 0 0"
+                    class="pasillo-principal clickable" visible="false"
+                    change-site="img: #img-360-Ed1-5; sound: #sound-birds; zone: .edificio-1-5"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" src="assets/img/flecha.png" position="0 -0.5 0" rotation="0 0 0"
+                    class="pasillo-principal clickable" visible="false"
+                    change-site="img: #img-360-huella; sound: #sound-birds; zone: .huella"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Material didáctico-->
+                <a-image id="arrow-left" src="assets/img/flecha.png" position="-4 1.5 0" rotation="0 0 180"
+                    class="MaterialDidactico clickable" visible="false"
+                    change-site="img: #img-360-Casilleros; sound: #sound-birds; zone: .Casilleros"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" src="assets/img/flecha.png" position="4 1.5 0" rotation="0 0 0"
+                    class="MaterialDidactico clickable" visible="false"
+                    change-site="img: #img-360-l; sound: #sound-birds; zone: .edificio-1-5"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio CADE-->
+                <a-image id="arrow-up" src="assets/img/flecha.png" position="0 3.5 0" rotation="0 0 90"
+                    class="edificio-cade clickable" visible="false"
+                    change-site="img: #img-360-PasilloEd3-Ed4; sound: #sound-birds; zone: .edificio-cade"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" src="assets/img/flecha.png" position="0 -0.5 0" rotation="0 0 0"
+                    class="edificio-cade clickable" visible="false"
+                    change-site="img: #img-360-huella; sound: #sound-birds; zone: .pasillo-principal"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+            </a-entity>
+        </a-entity>
+
+        <a-sky id="my-sky" src="#img-360-huella" sound="src: #sound-birds; loop: true" data-sounding="false"
+            rotation="0 180 0">
+        </a-sky>
+
+    </a-scene>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
-
-
-<script>
-    //flecha arriba
-    document
-        .querySelector("#arriba")
-        .addEventListener("click", e => {
-        location.href ="pages/PasilloPrincipal.html";
-    });
-
-    //flecha izquierda
-    document
-        .querySelector("#izq")
-        .addEventListener("click", e => {
-        location.href = "pages/EdCIDET.html";
-    });
-
-    //flecha derecha
-    document
-        .querySelector("#der")
-        .addEventListener("click", e => {
-        location.href = "pages/EdCCPI.html";
-    });
-
-</script>
 
 </html>
