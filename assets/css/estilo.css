@@ -82,7 +82,7 @@
   color: #EF3B3A;
 }
 body {
-  background-image: url("Images/Fime2.jpg");
+  background-image: url("../img/Fime2.jpg");
   background-repeat:repeat;
   background-position: 20px 40px;
   width:30%;
