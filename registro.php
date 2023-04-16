@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="js/registro.js"></script>
-<script type="text/javascript" src="js/jquery.js"></script>
-<script src="js/js.js"></script>
-    <LINK REL=StyleSheet HREF="../estilo.css" TYPE="text/css" MEDIA=screen>
-    <link rel="stylesheet" href="../estilo1.css" TYPE="text/css">
-    <link rel="stylesheet" href="css/test.css" type="text/css">
+    <script type="text/javascript" src="assets/js/components/registro.js"></script>
+<script type="text/javascript" src="assets/js/components/jquery.js"></script>
+<script src="assets/js/components/js.js"></script>
+    <LINK REL=StyleSheet HREF="assets/css/estilo.css" TYPE="text/css" MEDIA=screen>
+    <link rel="stylesheet" href="assets/css/estilo1.css" TYPE="text/css">
+    <link rel="stylesheet" href="assets/css/test.css" type="text/css">
 
 
     
@@ -48,7 +48,7 @@
                 <option value="Noveno">
                 <option value="Decimo">
             </datalist>
-            <p class="message">¿Ya tienes cuenta? <a href="..\Iniciar.php">Inicia sesión</a></p>
+            <p class="message">¿Ya tienes cuenta? <a href="index.php">Inicia sesión</a></p>
     </div>
     </div>
 </div>

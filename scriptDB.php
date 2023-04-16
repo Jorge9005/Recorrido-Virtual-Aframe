@@ -133,7 +133,7 @@ function login()
     if($user = mysqli_fetch_assoc($consulta)) 
     {
         echo "el usuario y la pwd son correctas <br>";
-        header('Location: Main-Menu.php');
+        header('Location: index.html');
     } 
     else 
     {
@@ -225,7 +225,7 @@ if (isset($_POST['btn_validar'])) {
     }
 
     if (isset($_POST['bbb'])) {
-        header('Location: ../iniciar.php');
+        header('Location: index.php');
     }
 
     if (isset($_POST['btn_registrarse']))
@@ -372,7 +372,7 @@ if (isset($_POST['btn_validar'])) {
             }
             else{
                 echo"query";
-                header('Location: ../iniciar.php');
+                header('Location: index.php');
             }
         }
     }
