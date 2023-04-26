@@ -10,12 +10,12 @@ function initialize(){
 // }
 
 function toggleSound(event){
-  
+
   var mySky = document.querySelector("#my-sky");
   var speakerImg = document.querySelector("#speaker-img");
 
   var sounding = mySky.getAttribute("sounding");
-  
+
   if(sounding == "true"){
     mySky.setAttribute("sounding", false);
     speakerImg.src = "assets/img/sound_off.png";
