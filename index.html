@@ -79,6 +79,7 @@
             <img id="img-360-Biblioteca" src="assets/img/Biblioteca.jpg" alt="img-360-Biblioteca">
             <img id="img-360-Cafeteria" src="assets/img/Cafeteria.jpg" alt="img-360-Cafeteria">
             <img id="img-360-CanchasFutbol" src="assets/img/CanchasFutbol.jpg" alt="img-360-CanchasFutbol">
+            <img id="img-360-Casilleros" src="assets/img/Casilleros.jpg" alt="img-360-Casilleros">
             <img id="img-360-Ed1-5" src="assets/img/Ed1-5.jpg" alt="img-360-Ed1-5">
             <img id="img-360-Ed2-Baños" src="assets/img/Ed2-Baños.jpg" alt="img-360-Ed2-Baños">
             <img id="img-360-Ed3-ParteTrasera" src="assets/img/Ed3-ParteTrasera.jpg" alt="img-360-Ed3-ParteTrasera">
@@ -111,6 +112,8 @@
             <audio id="sound-wind-inside" src="assets/sounds/212443__klankbeeld__howling-wind-inside-01-131230-01.ogg"
                 preload="auto"></audio>
             <audio id="magic-click" src="assets/sounds/340159__flechabr__magic-click.ogg" preload="auto"></audio>
+            <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02">
+                </a-image>
         </a-assets>
 
         <a-camera>
@@ -163,7 +166,7 @@
                 <!--Material didáctico-->
                 <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
                     class="MaterialDidactico clickable" visible="false"
-                    change-site="img: #img-360-Casilleros; sound: #sound-birds; zone: .Casilleros"
+                    change-site="img: #img-360-Casilleros; sound: #sound-birds; zone: .casilleros"
                     sound="on: click; src: #magic-click">
                 </a-image>
                 <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
@@ -172,10 +175,22 @@
                     sound="on: click; src: #magic-click">
                 </a-image>
 
+                <!--Casilleros-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="casilleros clickable" visible="false"
+                    change-site="img: #img-360-Cafeteria; sound: #sound-birds; zone: .cafeteria"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="casilleros clickable" visible="false"
+                    change-site="img: #img-360-MaterialDidactico; sound: #sound-birds; zone: .MaterialDidactico"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
                 <!--Edificio CADE-->
                 <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
                     class="edificio-cade clickable" visible="false"
-                    change-site="img: #img-360-PasilloEd3-Ed4; sound: #sound-birds; zone: .edificio-cade"
+                    change-site="img: #img-360-PasilloEd3-Ed4; sound: #sound-birds; zone: .pasilloEd3-Ed4"
                     sound="on: click; src: #magic-click">
                 </a-image>
                 <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
@@ -186,6 +201,267 @@
                 <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
                     class="edificio-cade clickable" visible="false"
                     change-site="img: #img-360-PasilloPrincipal; sound: #sound-birds; zone: .pasillo-principal"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Pasillo Edificio 3 - Edificio 4-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="pasilloEd3-Ed4 clickable" visible="false"
+                    change-site="img: #img-360-FimeBook; sound: #sound-birds; zone: .fimebook"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="pasilloEd3-Ed4 clickable" visible="false"
+                    change-site="img: #img-360-Cafeteria; sound: #sound-birds; zone: .cafeteria"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="pasilloEd3-Ed4 clickable" visible="false"
+                    change-site="img: #img-360-Ed3; sound: #sound-birds; zone: .edificio-3"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="pasilloEd3-Ed4 clickable" visible="false"
+                    change-site="img: #img-360-EdCADE; sound: #sound-birds; zone: .edificio-cade"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--FimeBook-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="fimebook clickable" visible="false"
+                    change-site="img: #img-360-Ed4; sound: #sound-birds; zone: .edificio-4" sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="fimebook clickable" visible="false"
+                    change-site="img: #img-360-Biblioteca; sound: #sound-birds; zone: .biblioteca" sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="fimebook clickable" visible="false"
+                    change-site="img: #img-360-Ed3-ParteTrasera; sound: #sound-birds; zone: .edificio-3-parteTrasera" sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="fimebook clickable" visible="false"
+                    change-site="img: #img-360-PasilloEd3-Ed4; sound: #sound-birds; zone: .pasilloEd3-Ed4" sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 4-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="edificio-4 clickable" visible="false" change-site="img: #img-360-Polideportivo; sound: #sound-birds; zone: .polideportivo"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-4 clickable" visible="false"
+                    change-site="img: #img-360-Fimebook; sound: #sound-birds; zone: .fimebook"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                
+                <!--Polideportivo-->
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="polideportivo clickable" visible="false"
+                    change-site="img: #img-360-CanchasFutbol; sound: #sound-birds; zone: .canchasFutbol"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="polideportivo clickable" visible="false"
+                    change-site="img: #img-360-Ed4; sound: #sound-birds; zone: .edificio-4" sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Canchas de Futbol-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="canchasFutbol clickable" visible="false"
+                    change-site="img: #img-360-Polideportivo; sound: #sound-birds; zone: .polideportivo" sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="canchasFutbol clickable" visible="false"
+                    change-site="img: #img-360-Ed3-ParteTrasera; sound: #sound-birds; zone: .edificio-3-parteTrasera" sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 3 - Parte trasera-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="edificio-3-parteTrasera clickable" visible="false"
+                    change-site="img: #img-360-CanchasFutbol; sound: #sound-birds; zone: .canchasFutbol"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-3-parteTrasera clickable" visible="false"
+                    change-site="img: #img-360-FimeBook; sound: #sound-birds; zone: .fimebook"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Biblioteca-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="biblioteca clickable" visible="false"
+                    change-site="img: #img-360-Ed6-ParteTrasera; sound: #sound-birds; zone: .edificio-6-parteTrasera"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="biblioteca clickable" visible="false"
+                    change-site="img: #img-360-FimeBook; sound: #sound-birds; zone: .fimebook"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 6 - Parte trasera-->
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-6-parteTrasera clickable" visible="false" change-site="img: #img-360-biblioteca; sound: #sound-birds; zone: .biblioteca"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-6-parteTrasera clickable" visible="false"
+                    change-site="img: #img-360-Ed7-Cafeteria; sound: #sound-birds; zone: .edificio-7-cafeteria" sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 7 - Cafetería-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-7-cafeteria clickable" visible="false"
+                    change-site="img: #img-360-Ed7-ParteTrasera; sound: #sound-birds; zone: .edificio-7-parteTrasera"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-7-cafeteria clickable" visible="false"
+                    change-site="img: #img-360-Cafeteria; sound: #sound-birds; zone: .cafeteria" sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Cafetería-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="cafeteria clickable" visible="false"
+                    change-site="img: #img-360-Biblioteca; sound: #sound-birds; zone: .biblioteca"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="cafeteria clickable" visible="false"
+                    change-site="img: #img-360-Ed7-Cafeteria; sound: #sound-birds; zone: .edificio-7-cafeteria"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="cafeteria clickable" visible="false"
+                    change-site="img: #img-360-PasilloEd3-Ed4; sound: #sound-birds; zone: .pasilloEd3-Ed4" sound="on: click; src: #magic-click">
+                </a-image>
+                
+                <!--Edificio 3-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-3 clickable" visible="false"
+                    change-site="img: #img-360-PasilloEd3-Ed4; sound: #sound-birds; zone: .pasilloEd3-Ed4"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-3 clickable" visible="false"
+                    change-site="img: #img-360-Ed9; sound: #sound-birds; zone: .edificio-9"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 9-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="edificio-9 clickable" visible="false"
+                    change-site="img: #img-360-Ed3; sound: #sound-birds; zone: .edificio-3" sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-9 clickable" visible="false"
+                    change-site="img: #img-360-EdCADE; sound: #sound-birds; zone: .edificio-cade"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-9 clickable" visible="false"
+                    change-site="img: #img-360-Ed2-Baños; sound: #sound-birds; zone: .edificio-2-baños"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                
+                <!--Edificio 2 - Baños-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-2-baños clickable" visible="false"
+                    change-site="img: #img-360-Ed1-5; sound: #sound-birds; zone: .edificio-1-5"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-2-baños clickable" visible="false"
+                    change-site="img: #img-360-EdBecas; sound: #sound-birds; zone: .edificio-becas"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 1-5-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-1-5 clickable" visible="false"
+                    change-site="img: #img-360-PasilloPrincipal; sound: #sound-birds; zone: .pasillo-principal"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-1-5 clickable" visible="false" change-site="img: #img-360-Ed2-Baños; sound: #sound-birds; zone: .edificio-2-baños"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-1-5 clickable" visible="false"
+                    change-site="img: #img-360-EdBecas; sound: #sound-birds; zone: .edificio-becas"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio Becas-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-becas clickable" visible="false"
+                    change-site="img: #img-360-Ed1-5; sound: #sound-birds; zone: .edificio-1-5"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-becas clickable" visible="false"
+                    change-site="img: #img-360-EdCCPI; sound: #sound-birds; zone: .edificio-ccpi"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                
+                <!--Edificio CCPI-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="edificio-ccpi clickable" visible="false"
+                    change-site="img: #img-360-EdBecas; sound: #sound-birds; zone: .edificio-becas"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-ccpi clickable" visible="false"
+                    change-site="img: #img-360-huella; sound: #sound-birds; zone: .huella"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio CIDET-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="edificio-cidet clickable" visible="false"
+                    change-site="img: #img-360-LabQuimica; sound: #sound-birds; zone: .laboratorios-quimica"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-cidet clickable" visible="false"
+                    change-site="img: #img-360-huella; sound: #sound-birds; zone: .huella"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Laboratorios de Química-->
+                <a-image id="arrow-left" gltf-model="#arrow" position="-8 1 3" rotation="20 90 0" scale="0.02 0.02 0.02"
+                    class="laboratorios-quimica clickable" visible="false"
+                    change-site="img: #img-360-Ed7; sound: #sound-birds; zone: .edificio-7"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="laboratorios-quimica clickable" visible="false"
+                    change-site="img: #img-360-EdCIDET; sound: #sound-birds; zone: .edificio-cidet"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 7-->
+                <a-image id="arrow-up" gltf-model="#arrow" position="0 1 -5" rotation="25 0 0" scale="0.02 0.02 0.02"
+                    class="edificio-7 clickable" visible="false"
+                    change-site="img: #img-360-Ed7-ParteTrasera; sound: #sound-birds; zone: .edificio-7-parteTrasera"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-7 clickable" visible="false"
+                    change-site="img: #img-360-LabQuimica; sound: #sound-birds; zone: .laboratorios-quimica"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+
+                <!--Edificio 7 - Parte trasera-->
+                <a-image id="arrow-right" gltf-model="#arrow" position="8 1 3" rotation="20 270 0" scale="0.02 0.02 0.02"
+                    class="edificio-7-parteTrasera clickable" visible="false"
+                    change-site="img: #img-360-Ed7-Cafeteria; sound: #sound-birds; zone: .edificio-7-cafeteria"
+                    sound="on: click; src: #magic-click">
+                </a-image>
+                <a-image id="arrow-down" gltf-model="#arrow" position="0 1 10" rotation="15 180 0" scale="0.02 0.02 0.02"
+                    class="edificio-7-parteTrasera clickable" visible="false"
+                    change-site="img: #img-360-Ed7; sound: #sound-birds; zone: .edificio-7"
                     sound="on: click; src: #magic-click">
                 </a-image>
             </a-entity>
