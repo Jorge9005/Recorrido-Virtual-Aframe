@@ -1,3 +1,6 @@
+<?php
+include('verif.php'); 
+?>
 <!DOCTYPE html>
 <html>
 <head>
