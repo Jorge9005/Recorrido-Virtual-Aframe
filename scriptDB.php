@@ -1,6 +1,26 @@
 <?php
-function conexion()
+
+function script()
 {
+    echo'
+    <html>
+    <head></head>
+    <body></body>
+    <script>
+    alert("datos incorrectos o que no existen");
+    window.location.href = "index.php";
+    </script>
+    </html>';
+}
+    /*Generando fecha INICIO*/
+    $a= date("Y");
+    $m= date("m");
+    $d= date("d");
+    $d = $d;
+
+    $fecha= $a ."-". $m ."-". $d;
+    $fechaux= $d ."-". $m ."-". $a;
+    echo"$fechaux";
     /*ALTER TABLE tabla AUTO_INCREMENT = 1;*/
     $address = "127.0.0.1";
     $user = "root";
@@ -16,112 +36,11 @@ function conexion()
     {
         echo "<br> Base de datos funciona <br>"; 
     }
-}
 
-function reporteVentas() /*ESTA FUNCION NO SE USA*/  
-{
-    echo"ESTA FUNCION NO SE USA";
-    $address = "127.0.0.1";
-    $user = "root";
-    $pass = "";
-    $database = "virtual-route";
-    $mysqli = new mysqli("$address", "$user", "", "$database");
-    /*if ($mysqli->connect_errno) 
-    {
-        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
-    else
-    {
-        echo "<br> Base de datos funciona <br>"; 
-    }*/
-    $query = "SELECT * FROM Consolidado";
-
-
-echo '<table border="0" cellspacing="2" cellpadding="2"> 
-    <tr> 
-    <td> <font face="Arial">Value1</font> </td> 
-    <td> <font face="Arial">Value2</font> </td> 
-    <td> <font face="Arial">Value3</font> </td> 
-    </tr>';
-
-if ($result = $mysqli->query($query)) {
-    while ($row = $result->fetch_assoc()) {
-        $field1name = $row["Producto/Servicio"];
-        $field2name = $row["Cantidad"];
-        $field3name = $row["Precio"];
-
-
-        echo '<tr> 
-        <td>'.$field1name.'</td> 
-        <td>'.$field2name.'</td> 
-        <td>'.$field3name.'</td> 
-        </tr>';
-    }
-    $result->free();
-} 
-}
-
-function reporteMateria() /*ESTA FUNCION NO SE USA*/  
-{
-
-    echo"ESTA FUNCION NO SE USA";
-    $address = "127.0.0.1";
-    $user = "root";
-    $pass = "";
-    $database = "virtual-route";
-    $mysqli = new mysqli("$address", "$user", "", "$database");
-    /*if ($mysqli->connect_errno) 
-    {
-        echo "Fallo al conectar a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
-    else
-    {
-        echo "<br> Base de datos funciona <br>"; 
-    }*/
-    $query = "SELECT *
-    FROM consolidado
-    INNER JOIN productos
-    ON consolidado.productoFK = productos.PKproductos;";
-    
-
-echo '<table border="0" cellspacing="2" cellpadding="2"> 
-    <tr> 
-    <td> <font face="Arial">Value1</font> </td> 
-    <td> <font face="Arial">Value2</font> </td> 
-    <td> <font face="Arial">Value3</font> </td> 
-    </tr>';
-
-if ($result = $mysqli->query($query)) {
-    while ($row = $result->fetch_assoc()) {
-        $field1name = $row["ProductoServicio"];
-        $field2name = $row["Cantidad"];
-        $field3name = $row["Precio"];
-
-
-        echo '<tr> 
-        <td>'.$field1name.'</td> 
-        <td>'.$field2name.'</td> 
-        <td>'.$field3name.'</td> 
-        </tr>';
-    }
-    $result->free();
-} 
-}
-
-function login()
-{
     if(isset($_POST['btn_validar']))
 {
-    $address = "127.0.0.1";
-    $user = "root";
-    $pass = "";
-    $database = "virtual-route";
-    $mysqli = new mysqli("$address", "$user", "", "$database");
-
-    //echo "<br> Pulsar boton <br>";
     $p_user = $_POST['h_user'];
     $p_pass = $_POST['h_pass'];
-
     $consulta = mysqli_query ($mysqli, "SELECT * FROM user WHERE nameuser = '$p_user' AND passuser = '$p_pass'");
 
     if(!$consulta)
@@ -132,6 +51,12 @@ function login()
 
     if($user = mysqli_fetch_assoc($consulta)) 
     {
+        // Iniciar la sesión
+        session_start();
+
+        // Crear una variable de sesión para el nombre de usuario
+        $_SESSION['nombre_usuario'] = $p_user;
+
         echo "el usuario y la pwd son correctas <br>";
         header('Location: index.html');
     } 
@@ -140,93 +65,7 @@ function login()
         script();
     }
 }
-}
 
-
-function rad() /*ESTA FUNCION NO SE USA*/  
-{
-    echo"ESTA FUNCION NO SE USA";
-    $address = "127.0.0.1";
-    $user = "root";
-    $pass = "";
-    $database = "virtual-route";
-    $mysqli = new mysqli("$address", "$user", "", "$database");
-
-    for ($i=0; $i<5; $i++) {
-        $d=rand(1,5);
-        $f=rand(1,5);
-        $g=rand(1,5);
-        $h=rand(1,5);
-        echo $d;
-}
-$query = "INSERT INTO movimientos (PKmovimiento, Tipo) VALUES ('NULL', 'o')";
-$mysqli->query($query);
-
-if($mysqli->connect_errno)
-{
-    echo "No funciona query (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-}
-else{
-    echo"query";
-}
-}
-
-function gfecha()
-{
-    $a= date("Y");
-    $m= date("m");
-    $d= date("d");
-    $d = $d-1;
-
-    $fecha= $a ."-". $m ."-". $d;
-    $fechaux= $d ."-". $m ."-". $a;
-echo"fecha formato para el usuario: ";
-echo "$fechaux";
-echo"<br>";
-echo"fecha formato para base de datos: ";
-echo "$fecha";
-echo"<br>";
-echo"FAVOR DE COMUNICARSE AL SIGUIENTE CORREO PARA SOLICITAR ASISTENCIA: " ;
-echo"<br>";
-echo"ADMIN@GMAIL.COM" ;
-}
-
-function script()
-{
-    echo'<html>
-    <head></head>
-    <style>
-    body{
-        background-color: black;
-        color: white;
-    }
-    </style>
-    <body>
-    <form action="scriptDB.php" method="POST">
-    <input type="submit" value="regresar a login" name="bbb">
-    <h2>Consola:</h2>
-    <br>
-    <p>login():</p>
-    <p>Datos incorrectos o datos que no existen.</p>
-    <p>gfecha():</p>
-    ';
-    gfecha();
-    echo'</body> 
-    </form>
-    </html>';
-}
-/*RUN:*/
-if (isset($_POST['btn_validar'])) {
-    login();
-    }
-
-    if (isset($_POST['bb'])) {
-        script();
-    }
-
-    if (isset($_POST['bbb'])) {
-        header('Location: index.php');
-    }
 
     if (isset($_POST['btn_registrarse']))
     {
@@ -235,6 +74,31 @@ if (isset($_POST['btn_validar'])) {
 
     if (isset($_POST['btn_continuar']))
     {
+        $p_name = $_POST['h_nameuser'];
+        //validar
+        $consulta = mysqli_query ($mysqli, "SELECT * FROM `user` WHERE `nameuser` = '$p_name'");
+        if(!$consulta)
+        {      
+            echo mysqli_error($mysqli);
+            exit;
+        }
+
+        $p_email = $_POST['h_emailuser'];
+        $consulta_email = mysqli_query ($mysqli, "SELECT * FROM `user` WHERE `emailuser` = '$p_email'");
+        if(!$consulta_email)
+        {      
+            echo mysqli_error($mysqli);
+            exit;
+        }
+
+        if(!mysqli_fetch_assoc($consulta_email)) 
+        {
+        if(mysqli_fetch_assoc($consulta)) 
+        {
+            echo "<br> el usuario ya existe <br>";
+        }
+        else
+        {
         $p_pass = $_POST['h_passuser'];
         $p_passbool = $_POST['h_passuserbool'];
         if ($p_passbool != $p_pass) {
@@ -244,15 +108,6 @@ if (isset($_POST['btn_validar'])) {
             $p_emailuser = $_POST['h_emailuser'];
             $p_passuser = $_POST['h_passuser'];
             $p_lista = $_POST['h_lista'];
-            /*Generando fecha INICIO*/
-            $a= date("Y");
-            $m= date("m");
-            $d= date("d");
-            $d = $d-1;
-        
-            $fecha= $a ."-". $m ."-". $d;
-            $fechaux= $d ."-". $m ."-". $a;
-            /*Generando fecha fin*/
             
             echo"$p_nameuser";
             echo'<br>';
@@ -358,11 +213,7 @@ if (isset($_POST['btn_validar'])) {
 
             echo"$p_listanumber";
             echo'<br>';
-            $address = "127.0.0.1";
-            $user = "root";
-            $pass = "";
-            $database = "virtual-route";
-            $mysqli = new mysqli("$address", "$user", "", "$database");
+
 
             $query = "INSERT INTO user (pkuser, fktype, nameuser, emailuser,date,fksemester,passuser) VALUES ('NULL', '2','$p_nameuser','$p_emailuser','$fecha','$p_listanumber','$p_passuser')";
             $mysqli->query($query);
@@ -376,4 +227,45 @@ if (isset($_POST['btn_validar'])) {
             }
         }
     }
+}
+else
+{
+    echo "EMAIL YA EXISTE";
+}
+}
+
+    if (isset($_POST['btn_comentar'])) {
+        session_start();
+        $p_name = $_SESSION['nombre_usuario'];
+        $p_cmmt = $_POST['comentario'];
+    
+        $consulta = mysqli_query($mysqli, "SELECT * FROM `user` WHERE `nameuser` = '$p_name'");
+        if (!$consulta) {      
+            echo mysqli_error($mysqli);
+            exit;
+        }
+        if ($user = mysqli_fetch_assoc($consulta)) {
+            $consulta2 = mysqli_query($mysqli, "SELECT `pkuser` FROM `user` WHERE `nameuser` = '$p_name'");
+            if (!$consulta2) {
+                echo mysqli_error($mysqli);
+                exit;
+            }
+            if ($fila = mysqli_fetch_assoc($consulta2)) {
+                $n = $fila['pkuser'];
+                echo "<br> Insertando...<br>";
+                $query = "INSERT INTO `comentarios` (`pk-comentar`, `pk-usuario`, `fecha`, `contenido`) VALUES (NULL, '$n', '$fecha', '$p_cmmt')";
+                $mysqli->query($query);
+                if ($mysqli->connect_errno) {
+                    echo "<br> No funciona query (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+                } else {
+                    echo "<br> funciono query";
+                }
+            } else {
+                echo "El usuario no fue encontrado";
+            }
+        } else {
+            echo "El usuario no fue encontrado";
+        }
+    }
+    
     ?>
