@@ -1,4 +1,4 @@
-.button-container{
+.button-container {
     position: fixed;
     top: 2em;
     right: 2em;
@@ -18,24 +18,25 @@
     height: auto;
 }
 
-#container-menu{
+#container-menu {
     position: fixed;
     z-index: 1;
 }
 
-#container-info{
+#container-info {
     position: fixed;
     z-index: 1;
 }
 
-.principal-buttons{
+.principal-buttons {
     position: fixed;
     z-index: 1;
     bottom: 10px;
     left: 1px;
 }
 
-.img-mapa{
+.img-mapa {
     height: 540px;
     width: 700px;
 }
+
