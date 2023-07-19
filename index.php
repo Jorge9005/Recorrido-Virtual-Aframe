@@ -13,7 +13,7 @@
     <div>
       <p>
         <span>
-          Recorrido Virtual
+          Recorrido Virtuaaaaal
         </span>
       </p>
     </div>
